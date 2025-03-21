@@ -1,0 +1,32 @@
+Zadatak 1.
+
+    1) pwd
+    2) ls
+    3) mkdir Vjezba && cd Vjezba
+    4) touch README.md
+    5) cd /mnt/c/Users/Korisnik/Github/OS-zadace
+
+Zadatak 2.
+
+    1) mkdir Vjezba2 && touch Vjezba2/file.txt
+    2) cp file.txt file_copy.txt
+    3) ls
+    4) rm file.txt && cd ..
+    5) rmdir Vjezba2 -->Ne želi ga izbrisati jer nije prazan (file_copy.txt je još unutra)
+
+Zadatak 3.
+
+    1) mkdir vjezba3 && mkdir Vjezba3/backup
+    2) touch vjezba3/notes.txt && touch vjezba3/todo.txt && touch vjezba3/script.sh && cd vjezba3
+    3) cp notes.txt backup/notes.txt && cp todo.txt backup/todo.txt && cp script.sh backup/script.sh
+    4) rm /mnt/c/Users/Korisnik/Github/OS-zadace/vjezba3/script.sh && ls
+    5) mkdir backup/$USER
+    6) mv backup/notes.txt backup/$USER/notes.txt && mv backup/todo.txt backup/$USER/todo.txt && backup/script.sh backup/$USER/script.sh
+
+Zadatak 4.
+
+    1) mkdir vjezba4 && mkdir vjezba4/subfolder
+    2) touch vjezba4/$HOSTNAME
+    3) mv vjezba4/$HOSTNAME vjezba4/$USER
+    4) mv vjezba4/$USER vjezba4/subfolder/$USER
+    5) rm /mnt/c/Users/Korisnik/Github/OS-zadace/vjezba4/subfolder/$USER
