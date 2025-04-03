@@ -1,0 +1,16 @@
+mkdir data(imam već direktorij vježba_2 od prošle vježbe)
+mkdir  backup 
+touch data/script.js data/style.css data/.env
+echo 'console.log("Hello, world")'>data/script.js 
+echo "body { background-color: #f0f0f0; }">data/style.css
+echo "VJEZBE=OS">data/.env
+cp -ar data/* backup/
+cp data/.env backup/ (nije mi kopiralo .env datoteku)
+cd data && ls -als  ../backup
+rm -rv ./*
+cp -rvn ../backup/* ./
+ls -at1l
+cd /mnt/c/Users/Korisnik/Downloads/direktorij_za_vjezbu
+ls -als
+ls -alhs
+ls -alRt --color
