@@ -1,0 +1,84 @@
+1. zadatak
+    nano ispis_datoteka.sh
+        #!/bin/bash
+        aps_putanja=$1
+        dat_nastavak=$2
+        broj_arg=$#
+        if [ "$broj_arg" -ne 2 ]; then
+            echo "Potrebno je proslijediti točno 2 argumenta"
+            exit
+        else
+            broj_dat=0
+            for dat in "$abs_putanja"/*"$dat_nastavak"; do
+                if [ -f "$dat" ]; then
+                        echo $(basename "$dat")
+                        broj_dat=$(("$broj_dat"+1))
+                fi
+            done
+            if [ "$broj_dat" -eq 0 ]; then
+                echo "Nema datoteka s takvim nastavkom"
+            fi
+        fi
+
+2. zadatak
+    nano ispis_brojeva.sh
+    #!/bin/bash
+    broj=$1
+    if [[ broj -ge 1 && broj -le 10 ]]; then
+        touch brojevi.txt
+        for ((i=1;i<=$broj;i++)); do
+                echo $i>>brojevi.txt
+        done
+
+    else
+        echo "Broj nije unutar zadanog raspona"
+        exit
+    fi
+
+3. zadatak
+    mkdir Zadatak_za_vjezbu_3
+    cd Zadatak_za_vjezbu_3/
+    cd screenshoots/
+    touch bash.png nano.png vim.png
+    cd ..
+    nano preimenovanje.sh
+    #!/bin/bash
+    putanja="/mnt/c/Users/Korisnik/Github/OS-zadace/Zadatak_za_vjezbu_3/screenshoots"
+    prefiks=1
+    lista=()
+    for dat in "$putanja"/*; do
+        ime=$(basename "$dat")
+        novo_ime=screenshoot_"$prefiks"_"$ime"
+        mv "$dat" "$putanja"/"$novo_ime"
+        prefiks=$(($prefiks+1))
+        lista+=("$novo_ime")
+    done
+    echo ${lista[@]}
+
+4. zadatak
+    #!/bin/bash
+    naziv_direktorija=$1
+    broj_arg=$#
+    putanja_skripte="/mnt/c/Users/Korisnik/Github/OS-zadace/Zadatak_za_vjezbu_3"
+    if [ "$broj_arg" -ne 1 ]; then
+        echo "Potrebno je proslijediti samo jedan argument"
+        exit
+    else
+        pronalazak=0
+        datoteke=()
+        if [ -d "$putanja_skripte"/"$naziv_direktorija" ]; then
+                pronalazak=1
+                for dat in "$putanja_skripte"/"$naziv_direktorija"/*; do
+                        if [ -f "$dat" ]; then
+                        datoteke+=("$dat")
+                        fi
+                done
+        fi
+        if [ "$pronalazak" -gt 0 ]; then
+                zip svi_zapisi.zip "${datoteke[@]}"
+        else
+                echo "Direktorij ne postoji"
+        fi
+    fi
+
+
